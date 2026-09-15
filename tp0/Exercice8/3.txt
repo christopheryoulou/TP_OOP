@@ -1,0 +1,3 @@
+Ajout: test_recalibrer_plusieurs_occurrences — vérifie que tous les relevés portant le même nom_capteur sont recalibrés.
+
+Changement mineur: TestJournalDeBord hérite maintenant de unittest.TestCase pour que ses tests soient exécutés.

@@ -4,7 +4,7 @@ from qualite import*
 from tuples import*
 import unittest
 
-class TestJournalDeBord:
+class TestJournalDeBord(unittest.TestCase):
     """Tests pour les fonctions sur les relevés (tuples)."""
 
     def test_recalibrer_capteur_existant(self):
@@ -20,6 +20,14 @@ class TestJournalDeBord:
         releves = [("laser_avant", 2.35, "m"), ("laser_arriere", 1.10, "m"), ("gyroscope", 87.5, "deg")]
         nouveaux_releves = recalibrer(releves, "laser_central", 2.40)
         assert nouveaux_releves == releves
+
+    def test_recalibrer_plusieurs_occurrences(self):
+        """Cas : plusieurs relevés portent le même nom; tous doivent être recalibrés."""
+        releves = [("laser_avant", 2.00, "m"), ("laser_avant", 2.10, "m"), ("gyroscope", 87.5, "deg")]
+        nouveaux_releves = recalibrer(releves, "laser_avant", 2.50)
+        assert nouveaux_releves[0] == ("laser_avant", 2.50, "m")
+        assert nouveaux_releves[1] == ("laser_avant", 2.50, "m")
+        assert nouveaux_releves[2] == ("gyroscope", 87.5, "deg")
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

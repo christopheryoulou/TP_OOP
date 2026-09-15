@@ -1,0 +1,11 @@
+-Comportement si absent: documenter le comportement actuel ou choisir l'une des options suivantes selon l'usage attendu:
+
+    retourner la liste inchangée (actuel) — documenter;
+
+        lever ValueError("capteur introuvable") si aucun relevé ne correspond — utile pour signaler une erreur;
+
+        retourner un tuple (nouvelle_liste, remplacé: bool) pour informer du succès.
+
+
+-Docstring + annotations: ajouter une docstring et types:
+    def recalibrer(releves: list[tuple[str, float, str]], nom_capteur: str, nouvelle_valeur: float) -> list[tuple[str, float, str]]:
