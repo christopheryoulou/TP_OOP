@@ -29,6 +29,6 @@ def recalibrer(releves, nom_capteur, nouvelle_valeur):
 nouveaux_releves = recalibrer(releves, "laser_avant", 2.40)
 assert nouveaux_releves[0] == ("laser_avant", 2.40, "m")
 assert nouveaux_releves[1] == releve2
-assert nouveaux_releves[2] == releve3
+assert nouveaux_releves[2] == releve3   
 
 print("it works!")
