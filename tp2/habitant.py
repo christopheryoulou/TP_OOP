@@ -1,3 +1,5 @@
+from multipledispatch import dispatch
+
 class Habitant:
     def __init__(self, __nom, __age, __adresse, __animaux=None):
         self.__nom = __nom
@@ -39,7 +41,14 @@ class Habitant:
             raise ValueError("L'age doit être compris entre 0 et 130 ans.")
         self.__age = valeur
 
-    
+    @dispatch(object, str)
+    def set_info(habitant, nom):
+        habitant.set_nom(nom)
+
+    @dispatch(object, str, int)
+    def set_info(habitant, nom, age):
+        habitant.set_nom(nom)
+        habitant.set_age(age)
 
 h1 = Habitant("Aldric", 25, "Rue A", {"vaches": 3})
 assert h1.get_nom() == "Aldric"
