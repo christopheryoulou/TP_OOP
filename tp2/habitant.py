@@ -24,7 +24,7 @@ class Habitant:
         self.__animaux = animaux
     
     def affichage_adresse(self):
-        return f"{self.__nom} habite à {self.__adresse}"
+        return f"{self.__nom} habite a {self.__adresse}"
 
     def compte_animal(self, animal):
         return self.__animaux[animal] if animal in self.__animaux else 0
@@ -36,7 +36,7 @@ class Habitant:
     @age.setter
     def age(self, valeur):
         if valeur < 0 or valeur > 130:
-            raise ValueError("L'âge doit être compris entre 0 et 130 ans.")
+            raise ValueError("L'age doit être compris entre 0 et 130 ans.")
         self.__age = valeur
 
     
@@ -55,5 +55,3 @@ try:
     assert False, "une ValueError aurait du etre levee"
 except ValueError:
     pass
-
-print("it worked")
