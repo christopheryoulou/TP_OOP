@@ -59,7 +59,10 @@ class Habitant(ABC):
     @abstractmethod
     def calcul_nombre_annee_avant_retraite(self):
         pass
-        #return 62 - self.get_age() if 62 - self.get_age >= 0 else 
+        #return 62 - self.get_age() if 62 - self.get_age >= 0 else
+    
+    def __str__(self):
+        return f"{self.__prenom} {self.__nom}, {self.__age} ans, habite à {self.__adresse}"
         
 
 class Adulte(Habitant):
@@ -107,3 +110,10 @@ try:
     assert False, "une ValueError aurait du etre levee"
 except ValueError:
     pass
+print(adulte)
+def affichage(h: Habitant):
+    print(h)
+print(enfant)
+
+"""Cela garantit que chaque sous-classe implémente obligatoirement la méthode, évitant 
+ainsi les erreurs d'exécution ou les oublis silencieux qu'un simple pass aurait permis."""
